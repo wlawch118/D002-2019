@@ -1,5 +1,10 @@
+from random import randint
 #edit word here
-secret='hangman'
+dictionary=['hangman','rhythm','python','programming','word','game','welcome','secret','guessing','printed',
+            'inputs','users','enrichment','learning','studies','repeat','github','request','random','functional',
+            'looping','letters','desktop','computer','barns','course','lecturer','lesson','tasks','powering',
+            'kevin','william','algorithm','criteria','definition','highlight','random','declare','range']
+secret=dictionary[randint(0,len(dictionary))]
 #edit number of chances here
 chance=10
 opened=[]
@@ -22,17 +27,23 @@ def checker(secret,guess):
     else:
         wrong.append(guess)
     return opened
-    
-print('Welcome to the HANGMAN game!')
-while True:
-    printer(secret,opened)
-    print(wrong)
+def result(secret,opened,wrong):
     win=True
     for i in range(0,len(secret)):
         if i in opened:
             opened=opened
         else:
             win=False
+    return win
+
+print('Welcome to the HANGMAN game!')
+while True:
+    printer(secret,opened)
+    print('WRONG letters : ',end='')
+    for i in range(0,len(wrong)):
+        print(wrong[i],end=' ')
+    print()
+    win=result(secret,opened,wrong)
     if win==True:
         print('CONGRATULATIONS!  You\'ve got the correct word - %s.'%secret)
         break
