@@ -1,5 +1,5 @@
 #edit word here
-secret='rhythm'
+secret='hangman'
 #edit number of chances here
 chance=10
 opened=[]
@@ -34,7 +34,7 @@ while True:
         else:
             win=False
     if win==True:
-        print('CONGRATUALTIONS!  You\'ve got the correct word - %s.'%secret)
+        print('CONGRATULATIONS!  You\'ve got the correct word - %s.'%secret)
         break
     elif len(wrong)<chance:
         print('You have %d CHANCES left.'%(chance-len(wrong)))
@@ -42,5 +42,6 @@ while True:
         print('SORRY!  You\'ve run out of chance.  The correct word is %s.'%secret)
         break
     guess=input('Guess a LETTER (lowercase) : ')
+    guess=guess[0]
     opened=checker(secret,guess)
 input()
