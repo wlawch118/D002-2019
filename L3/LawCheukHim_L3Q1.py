@@ -28,4 +28,14 @@ while number != 6 :
     count = count + 1
 
 print("Oh, it takes me %d times to get a 6!!!" % count)
+
+count=0
+for time in range(0,100):
+    number = randint(1,6)
+    count = count+1
+    while number != 6 : 
+        number=randint(1,6)
+        count = count + 1
+print('Average time taken is %.2f times.'%(count/100.0))
+
 input()
